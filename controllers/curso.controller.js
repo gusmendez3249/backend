@@ -42,3 +42,16 @@ exports.deleteCurso = (req, res) => {
     }
   });
 };
+
+exports.activarCurso = (req, res) => {
+  const id = req.params.id;
+  // Establecer 'acceso' a 1 para activar el curso
+  Curso.update(id, { acceso: 1 }, (err, results) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.json({ message: 'Curso activado exitosamente.' });
+    }
+  });
+};
+

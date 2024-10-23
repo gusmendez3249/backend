@@ -10,15 +10,18 @@ const preguntaRoutes = require('./routes/pregunta.routes');
 
 const app = express();
 
+// Middleware
 app.use(bodyParser.json());
 app.use(cors());
 
+// Rutas
 app.use('/api/cursos', cursoRoutes);
 app.use('/api/niveles', nivelRoutes);
 app.use('/api/lecciones', leccionRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/preguntas', preguntaRoutes);
 
+// Iniciar el servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
